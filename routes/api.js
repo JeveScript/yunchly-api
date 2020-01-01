@@ -87,6 +87,7 @@ router.get('/wxTopic',wxTopicController.all)        //  拿全部topic
 router.get('/wxTopic/:id',wxTopicController.single) //  拿单个topic
 router.put('/wxTopiPv',wxTopicController.pv)        //   pv 接口
 router.post('/wxTopic',wxTopicController.follow)    //   关注接口
+router.post('/wxUnFollow',wxTopicController.unFollow)  // 取关接口
 router.get('/wxTopicTitle/:id',wxTopicController.title)
 
 router.put('/wxPraise',wxAnswerController.praise)   // 点赞

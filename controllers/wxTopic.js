@@ -148,6 +148,24 @@ const wxTopicController={
         message:'服务器错误'
       })
     }
+  },
+  unFollow: async function(req,res,next){
+    let topic_id = req.body.topic_id;
+    let user_id = req.body.user_id;
+    try{
+      await user_topicModels.where({topic_id,user_id}).del()
+      await topicModels.where({id:topic_id}).decrement('follow',1)
+      res.json({
+        code:200,
+        message:'取关成功'
+      })
+    }catch(err){
+      console.log(err)
+      res.json({
+        code:0,
+        message:'服务器错误'
+      })
+    }
   }
 }
 
