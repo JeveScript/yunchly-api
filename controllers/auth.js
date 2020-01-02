@@ -53,7 +53,7 @@ const authController ={
             if(!openid || openid.length !== 28){
                 res.json({
                     code:0,
-                    message:'服务器错误'
+                    message:'服务器错误,280'
                 })
                 return
             }
@@ -63,6 +63,7 @@ const authController ={
                 id = user[0].id
             }else{
             // 储存数据库
+                console.log(userInfo.nickName)
                 let array = await userModels
                 .return({nick_name:userInfo.nickName,openid,
                 sex:userInfo.gender,avatar:userInfo.avatarUrl})
@@ -76,7 +77,7 @@ const authController ={
             console.log(err)
             res.json({
                 code:0,
-                message:'服务器错误'
+                message:'服务器错误,281'
             })
         }
     }
